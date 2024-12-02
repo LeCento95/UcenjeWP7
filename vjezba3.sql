@@ -14,8 +14,8 @@ pristupio bit,
 );
 
 create table Pristupnici (
-ispitni rok int,
+ispitni_rok int,
 student varchar (50),
-broj_bodova int,
-ocijena bit
+broj_bodova varchar (100),
+ocijena varchar (10)
 );

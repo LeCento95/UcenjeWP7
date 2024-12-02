@@ -1,38 +1,40 @@
-﻿use master;
+﻿-- Ovako se pišu komentari
+
+use master;
 go
 drop database if exists edunovawp7;
-
+go
 create database edunovawp7;
 go
 use edunovawp7;
 go
 
 create table smjerovi(
-sifra int,
-naziv varchar (50),
-trajanje int,
-cijena decimal (18,2),
+sifra int not null primary key identity(1,1), -- da se ide 1 za 1 
+naziv varchar(50) not null,
+trajanje int null, -- null se ne mora pisati
+cijena decimal(18,2),
 vaucer bit,
-izvodi_se_od datetime
+izvodiseod datetime
 );
 
-create table polaznici (
-sifra int,
-ime varchar (50),
-prezime varchar (50),
-oib char (11),
-email varchar (100)
+create table polaznici(
+sifra int not null primary key identity (1,1), -- primarni kljuc
+ime varchar(50) not null,
+prezime varchar(50) not null,
+oib char(11),
+email varchar(100) not null
+);
+
+create table grupe(
+sifra int not null primary key identity (1,1),
+naziv varchar(20) not null,
+smjer int not null references smjerovi(sifra), -- vanjski kljuc
+predavac varchar(50)
 );
 
 
-create table grupe (
-sifra int,
-naziv varchar (20),
-smjer int,
-predavac varchar (50)
-);
-
-create table clanovi (
-grupa int,
-polaznik int,
+create table clanovi(
+grupa int not null references grupe(sifra),
+polaznik int not null references polaznici(sifra)
 );

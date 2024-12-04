@@ -10,7 +10,7 @@ use edunovawp7;
 go
 
 create table smjerovi(
-sifra int not null primary key identity(1,1), -- da se ide 1 za 1 
+sifra int not null primary key identity(1,1), -- ovo je primarni ključ
 naziv varchar(50) not null,
 trajanje int null, -- null se ne mora pisati
 cijena decimal(18,2),
@@ -19,7 +19,7 @@ izvodiseod datetime
 );
 
 create table polaznici(
-sifra int not null primary key identity (1,1), -- primarni kljuc
+sifra int not null primary key identity(1,1),
 ime varchar(50) not null,
 prezime varchar(50) not null,
 oib char(11),
@@ -27,9 +27,9 @@ email varchar(100) not null
 );
 
 create table grupe(
-sifra int not null primary key identity (1,1),
+sifra int not null primary key identity(1,1), 
 naziv varchar(20) not null,
-smjer int not null references smjerovi(sifra), -- vanjski kljuc
+smjer int not null references smjerovi(sifra), -- ovo je vanjski ključ
 predavac varchar(50)
 );
 

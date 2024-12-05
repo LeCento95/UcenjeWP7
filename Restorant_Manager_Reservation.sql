@@ -1,10 +1,10 @@
 ﻿﻿use master;
 go
-drop database if exists Restorant_Manager_Reservation;
+drop database if exists Restorant_Manager_Reservation1;
 go
-create database Restoran_Manager_Reservation;
+create database Restorant_Manager_Reservation1;
 go
-use Restoran_Manager_Reservation;
+use Restorant_Manager_Reservation1;
 go
 
 create table gosti (
@@ -37,8 +37,7 @@ kategorije int references kategorije(sifra) not null
 create table narudzba (
 sifra int primary key identity (1,1) not null,
 kolicina int not null,
-gosti int references gosti(sifra) not null,
-rezervacija int references rezervacija (sifra) not null,
+stolovi int references stolovi (sifra) not null,
 meni int references meni(sifra) not null,
 status bit
 );
@@ -47,8 +46,6 @@ create table rezervacija (
 sifra int primary key identity (1,1) not null,
 datum date not null,
 vrijeme time not null,
-meni int references meni(sifra) not null,
 gosti int references gosti(sifra) not null,
-stolovi int references stolovi(sifra) not null,
-narudzba int references narudzba(sifra) not null
+stolovi int references stolovi(sifra) not null
 );

@@ -2,7 +2,7 @@
 go
 drop database if exists Restorant_Manager_Reservation1;
 go
-create database Restorant_Manager_Reservation1;
+create database Restorant_Manager_Reservation1 collate Croatian_CI_AS;
 go
 use Restorant_Manager_Reservation1;
 go

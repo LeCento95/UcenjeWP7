@@ -1,7 +1,7 @@
-﻿-- Ovako se pišu komentari
+﻿﻿-- Ovako se pišu komentari
 
 use master;
-go
+go 
 drop database if exists edunovawp7;
 go
 create database edunovawp7 collate Croatian_CI_AS;
@@ -88,7 +88,9 @@ INSERT INTO polaznici (ime, prezime, email) VALUES
 ('Boris', 'Bukovec', 'botaosijek@gmail.com'),
 ('Luka', 'Jurak', 'jurakluka18@gmail.com'),
 ('Ivan', 'Strmečki', 'ivan.strmecki8@gmail.com'),
-('Bruno', 'Bašić', 'brunobasic031@gmail.com');
+('Bruno', 'Bašić', 'brunobasic031@gmail.com'),
+('Jakov', 'Antolović', 'jakovantolović@gmail.com','54511389834');
+
 
 
 insert into clanovi (grupa,polaznik) values

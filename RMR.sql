@@ -12,7 +12,6 @@ sifra int primary key identity (1,1) not null,
 kapacitet int not null,
 status bit
 );
-
 create table meni (
 sifra int primary key identity (1,1) not null,
 naziv_jela varchar (50) not null,
@@ -33,6 +32,3 @@ rezervacija int references rezervacija(sifra) not null,
 meni int references meni(sifra) not null,
 status bit
 );
-
-
-

@@ -7,43 +7,47 @@ go
 use Restorant_Manager_Reservation;
 go
 
-create table Stolovi (
+create table stolovi (
 sifra int primary key identity (1,1) not null,
 kapacitet int,
 lokacija varchar (50)
 );
 
-create table Meni (
+create table meni (
 sifra int primary key identity (1,1) not null,
-jela varchar (100),
+naziv_jela varchar (100),
 cijena decimal (10,2),
 kategorija varchar (50)
 );
 
-create table Rezervacije (
+create table rezervacije (
 sifra int primary key identity (1,1) not null,
-datum_vrijeme datetime,
-broj_osoba int,
-ime_gosta varchar (100),
-stol int not null references stolovi(sifra)
-);
-
-create table Narudzba (
-sifra int primary key identity (1,1) not null,
-kolicina int,
+datum datetime not null,
+broj_osoba int not null,
 stol int not null references stolovi(sifra),
-meni int not null references Meni(sifra)
+ime_gosta varchar (100) not null
 );
-insert into Stolovi (kapacitet, lokacija)
-values (10, 6, 'Kamin');
 
-insert into Meni (meni_sifra, cijena, kategorija)
-values ('Pica Slavonska', 12.00, 'Pizza');
+create table narudzba (
+sifra int primary key identity (1,1) not null,
+rezervacija int not null references stolovi(sifra),
+meni int not null references meni(sifra)
+);
 
-insert into Rezervacije (datum_vrijeme, broj_osoba, ime_gosta, stol_sifra)
-values ('2024-12-12 19:00:00', 4, 'Tomislav Jakopec', 10);
+--1
+select * from stolovi;
+insert into stolovi (kapacitet, lokacija)
+values (10, 'Kamin');
 
-insert into Narudzba (stol_sifra, meni_sifra, kolicina)
-select 10, meni_sifra, 2
-from Meni
-where jela = 'Pica Slavonska'
+--2
+select * from meni;
+insert into meni (naziv_jela, cijena, kategorija)
+values ('Sarma', 9.00, 'Zimska jela');
+
+--3
+insert into rezervacije (datum_vrijeme, broj_osoba, stol, ime_gosta)
+values ('2024-12-09', 6, 10,'Tomislav Jakopec')
+
+--4
+insert into narudzba (rezervacija, meni)
+values ()

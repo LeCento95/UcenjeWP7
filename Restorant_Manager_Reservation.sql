@@ -24,7 +24,7 @@ create table rezervacije (
 sifra int primary key identity (1,1) not null,
 datum datetime not null,
 broj_osoba int not null,
-stol int not null references meni(sifra),
+stol int not null references stolovi(sifra),
 ime_gosta varchar (100) not null
 );
 

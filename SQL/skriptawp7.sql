@@ -61,7 +61,7 @@ insert into grupe (naziv, smjer) values
 ('K12',4);
 
 
-INSERT INTO polaznici (ime, prezime, email) VALUES 
+insert into polaznici (ime, prezime, email) values 
 ('Ante', 'Janković', 'antejankovic86@gmail.com'),
 ('Stojan', 'Carić', 'stojancaric8@gmail.com'),
 ('Željko', 'Lučan', 'lucko1987vk@gmail.com'),
@@ -89,7 +89,7 @@ INSERT INTO polaznici (ime, prezime, email) VALUES
 ('Luka', 'Jurak', 'jurakluka18@gmail.com'),
 ('Ivan', 'Strmečki', 'ivan.strmecki8@gmail.com'),
 ('Bruno', 'Bašić', 'brunobasic031@gmail.com'),
-('Jakov', 'Antolović', 'jakovantolović@gmail.com','54511389834');
+('Jakov', 'Antolović', 'jakovantolović@gmail.com');
 
 
 
@@ -101,3 +101,8 @@ insert into clanovi (grupa,polaznik) values
 (2,25),(2,26),(2,27),
 
 (3,7),(3,17),(3,27);
+
+select * from smjerovi;
+select * from grupe;
+select * from polaznici;
+select * from clanovi;

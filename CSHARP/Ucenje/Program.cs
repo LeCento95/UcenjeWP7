@@ -3,7 +3,15 @@
 
 using Ucenje;
 
-E03Operatori.Izvedi();
+E06Nizovi.Izvedi();
+
+//E05UvjetnoGranjanjeSwitch.Izvedi();
+
+//E04Z1.Izvedi();
+
+//E04UvjetnoGrananjeIF.Izvedi();
+
+//E03Operatori.Izvedi();
 
 //E02Varijable.Izvedi();
 

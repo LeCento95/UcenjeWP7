@@ -3,7 +3,19 @@
 
 using Ucenje;
 
-E06Nizovi.Izvedi();
+E07SubotaZ6.Izvedi();
+
+//E07SubotaZ5.Izvedi();
+
+//E07SubotaZ4.Izvedi();
+
+//E07SubotaZ3.Izvedi();
+
+//E07SubotaZ2.Izvedi();
+
+//E07SubotaZ1.Izvedi();
+
+//E06Nizovi.Izvedi();
 
 //E05UvjetnoGranjanjeSwitch.Izvedi();
 

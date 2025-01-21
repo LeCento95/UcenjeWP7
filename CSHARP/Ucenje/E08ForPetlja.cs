@@ -127,9 +127,74 @@ namespace Ucenje
             }
 
 
+            // petlju se može preskočiti
+
+            for(int i = 0; i < 10; i++)
+            {
+                if(i == 4)
+                {
+                    continue; // vraća na početak petlji
+                }
+
+                Console.WriteLine("Rezerviraj {0}, mjesto", i+1);
+
+            }
+
+
+            // petlja se može "nasilno" prekinuti
+            for(int i =0; i < 10; i++) // prirodni kraj je i = 10
+            {
+                if (i == 5)
+                {
+                    break; // nasilno prekidam
+                }
+                Console.WriteLine(i);
+            }
+
+            //korisnost break-a
+            //prim. broj, prime number, prosti broj
+            //2 3 5 7 11 13 17
+            // zašto 4 nije prim broj ? Cjelobrojno je djeljiv s 2
+
+            int brojZaProvjeru = 157;
+            int brojacIteracija = 1;
+            bool prim = true; // moja hipoteza je da taj broj je PRIM broj
+            for(int i = 2; i < brojZaProvjeru/2; i++)
+            {
+                Console.WriteLine("{0} % {1} == {2} ({3})", brojZaProvjeru, i, brojZaProvjeru % i, brojacIteracija++); 
+                if(brojZaProvjeru % i == 0)
+                {
+                    // TO NIJE PRIM BROJ
+                    prim = false;
+                    break;
+                }
+            }
+
+            Console.WriteLine("{0} {1} prim broj", brojZaProvjeru, prim ? "JE" : "NIJE");
+
+
+            // Za razbribrigu tijekom dugih zimskih noći https://hr.wikipedia.org/wiki/Eratostenovo_sito
+
+
+            // beskonačna petlja
+            for(int i = 0; i > -1; i++) // ovo nije beskonačna petlja zbog brojevne kružnice
+            {
+                break;
+            }
+
+            for(;  ; ) // ovo je sintaksa for beskonačne petlje
+            {
+                Console.WriteLine("{0} {0} {0} {0} {0} {0} {0} {0} {0} {0} {0}", new Random().Next());
+                Thread.Sleep(100);
+                //break; // ovo osloboditi ili svaki puta ručno zaustaviti program
+            }
+            
+
+
+
         }
 
-            
+
 
     }
 

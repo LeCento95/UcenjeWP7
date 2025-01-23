@@ -3,7 +3,17 @@
 
 using Ucenje;
 
-E08ForPetlja.Izvedi();
+E12Z2.Izvedi();
+
+//E12Z1.Izvedi();
+
+//E12ForEach.Izvedi();
+
+//E11DoWhilePetlja.Izvedi();
+
+//E10WhilePetlja.Izvedi();
+
+//E08ForPetlja.Izvedi();
 
 //E07SubotaZ6.Izvedi();
 

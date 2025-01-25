@@ -9,6 +9,14 @@ namespace Ucenje.E17KlasaObjekt
     // Klasa je opisnik objekta --> Ovo naučiti napamet
     public class Osoba
     {
+        private string? _moje;
+        public string Moje
+        {
+            get { return _moje ?? ""; }
+        }
+
+
+
         // klasa sadrži svojstva 
         // princip učahurivanja --> najčešće POCO (Plain Old C#  Object)
         // Svjostva klase se pišu sa velikim početnim slovom
@@ -31,15 +39,18 @@ namespace Ucenje.E17KlasaObjekt
         /// </summary>
         /// <returns>String koji sadrži ime i prezime osobe.</returns>
 
-        public string ImePrezime() // nema static jer static metode se zovu na klasi, a bez static se zovu na objektu
+        public string ImePrezime()    // nema static jer static metode se zovu na klasi, a bez static se zovu na objektu
         {
+            _moje = "aaa"; // u klasi mogu postavljati
+            //Sifra = 1;
             NeVidiSeIzvana();
             return Ime + " " + Prezime; // ovo nije baš dobro rješenje - string je imutable
         }
 
+
         private string NeVidiSeIzvana()
         {
-            return "";
+            return " ";
         }
 
 

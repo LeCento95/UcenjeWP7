@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Buffers;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,6 +8,7 @@ namespace Ucenje.E17KlasaObjekt
 {
     public class Program
     {
+        
         // 5. vrsta metode je konstruktor
         public Program()
         {
@@ -20,31 +20,32 @@ namespace Ucenje.E17KlasaObjekt
             Osoba osoba = new Osoba(); // kreiranje objekta klase Osoba
 
             osoba.Sifra = 1;
-            osoba.Ime = "Pero";
+            osoba.Ime = "Pero"; // pozvao si setter (učahurivanje)
             osoba.Prezime = "Perić";
             osoba.DatumRodjenja = new DateTime(2000, 1, 1);
 
-            Console.WriteLine(osoba.Ime);
+            Console.WriteLine(osoba.Ime); // pozvao si getter (izčahurivanje)
 
             Osoba[] osobe = new Osoba[3];
 
             osobe[0] = osoba;
 
+            
             // upoznati se s kraćom sintaksom za inicijalizaciju objekta
             osobe[1] = new Osoba { Ime = "Ana", Prezime = "Zimska" };
-
+            
             Console.WriteLine(osobe[1].Ime);
 
             Console.WriteLine("*********************");
-
             foreach (Osoba vo in osobe) // vo mi glumi varijabla osoba
             {
                 Console.WriteLine(vo?.Ime ?? "Nije postavljeno"); // ovdje ? znaci da ako je null da ne pukne, ?? je null coalescing operator, ako je o null ispisi Nije postavljeno
             }
 
-            Console.WriteLine("*********************");
-
+            Console.WriteLine("*********************");            
+            Console.WriteLine(osoba.Moje); // izvana se može samo čitati, a u klasi se postavljati
             Console.WriteLine(osoba.ImePrezime()); // na objektu osoba zovem metodu ImePrezime
+            Console.WriteLine(osoba.Moje);
             //osoba.Hello(); // ovo ne mogu
             Osoba.Hello(); //ovo mogu jer je static
 

@@ -1,9 +1,23 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
 
+
 using Ucenje;
 
-E12Z2.Izvedi();
+// kreiranje objekte/instance klase Program
+new Ucenje.E17KlasaObjekt.Program(); // poziva se konstruktor klase Program (5. vrsta metode)
+
+//E16Vjezbanje.Izvedi();
+
+//E15Rekurzija.Izvedi();
+
+//E14Z3.Izvedi();
+
+//E14Metode.Izvedi();
+
+//E13Z2.Izvedi();
+
+//E13TryCatch.Izvedi();
 
 //E12Z1.Izvedi();
 
@@ -29,17 +43,14 @@ E12Z2.Izvedi();
 
 //E06Nizovi.Izvedi();
 
-//E05UvjetnoGranjanjeSwitch.Izvedi();
-
-//E04Z1.Izvedi();
-
-//E04UvjetnoGrananjeIF.Izvedi();
+//E05UvjetnoGrananjeSwitch.Izvedi();
 
 //E03Operatori.Izvedi();
 
 //E02Varijable.Izvedi();
 
 //E01Z1.Izvedi();
+
 
 //E01UlazIzlaz.Izvedi();
 

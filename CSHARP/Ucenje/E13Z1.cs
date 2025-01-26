@@ -14,7 +14,7 @@ namespace Ucenje
             int broj;
             while (true)
             {
-                Console.WriteLine("Unesite cijeli broj: ");
+                Console.WriteLine("Unesi cijeli broj: ");
                 string unos = Console.ReadLine();
                 try
                 {
@@ -23,10 +23,10 @@ namespace Ucenje
                 }
                 catch
                 {
-                    Console.WriteLine("Pogrešan unos. Molim unesite cijeli broj.");
+                    Console.WriteLine("Pogrešan unos. Unesi cijeli broj.");
                 }
             }
-            Console.WriteLine($"Unijeli ste broj: {broj}");
+            Console.WriteLine($"Unio si broj: {broj}");
 
             // Osigurati unos parnog broja
 
@@ -34,7 +34,7 @@ namespace Ucenje
             int br;
             while (true)
             {
-                Console.WriteLine("Unesite parni cijeli broj: ");
+                Console.WriteLine("Unesi parni broj: ");
                 string unos = Console.ReadLine();
                 try
                 {
@@ -45,22 +45,22 @@ namespace Ucenje
                     }
                     else
                     {
-                        Console.WriteLine("Broj nije paran. Molim unesite parni broj.");
+                        Console.WriteLine("Broj nije paran. Unesi parni broj.");
                     }
                 }
                 catch
                 {
-                    Console.WriteLine("Pogrešan unos. Molim unesite cijeli broj");
+                    Console.WriteLine("Pogrešan unos. Unesi cijeli broj");
                 }
             }
-            Console.WriteLine($"Unijeli ste parni broj: {br}");
+            Console.WriteLine($"Unio si parni broj: {br}");
 
             // Osigurati unos visine čovjeka
 
             double visina;
             while (true)
             {
-                Console.WriteLine("Unesite visinu čovjeka u metrima: ");
+                Console.WriteLine("Unesi visinu čovjeka u metrima: ");
                 string unos = Console.ReadLine();
                 try
                 {

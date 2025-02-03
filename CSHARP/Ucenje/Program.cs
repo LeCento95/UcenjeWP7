@@ -4,12 +4,21 @@
 
 using Ucenje;
 
-new Ucenje.E19GSALE.Program();
+//new Ucenje.E19GSALE.Program();
 
-new Ucenje.E18NasljedivanjePolimorfizam.Program("E18 drugi konstruktor");
+//new Ucenje.E18NasljedivanjePolimorfizam.Program("E18 drugi konstruktor");
 
 // kreiranje objekte/instance klase Program
-new Ucenje.E17KlasaObjekt.Program(); // poziva se konstruktor klase Program (5. vrsta metode)
+//new Ucenje.E17KlasaObjekt.Program(); // poziva se konstruktor klase Program (5. vrsta metode)
+
+ZimskiZadatci.Main(new string[] { "1" });
+
+//new Ucenje.E19GSALE.Program();
+
+//new Ucenje.E18NasljedivanjePolimorfizam.Program("E18 drugi konstruktor");
+
+// kreiranje objekte/instance klase Program
+//new Ucenje.E17KlasaObjekt.Program(); // poziva se konstruktor klase Program (5. vrsta metode)
 
 //E16Vjezbanje.Izvedi();
 
@@ -31,6 +40,8 @@ new Ucenje.E17KlasaObjekt.Program(); // poziva se konstruktor klase Program (5. 
 
 //E10WhilePetlja.Izvedi();
 
+//E09ZimskiZadaci.Izvedi();
+
 //E08ForPetlja.Izvedi();
 
 //E07SubotaZ6.Izvedi();
@@ -49,12 +60,15 @@ new Ucenje.E17KlasaObjekt.Program(); // poziva se konstruktor klase Program (5. 
 
 //E05UvjetnoGrananjeSwitch.Izvedi();
 
+//E04Z1.Izvedi();
+
+//E04UvjetnoGrananjeIF.Izvedi();
+
 //E03Operatori.Izvedi();
 
 //E02Varijable.Izvedi();
 
 //E01Z1.Izvedi();
-
 
 //E01UlazIzlaz.Izvedi();
 

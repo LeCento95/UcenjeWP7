@@ -11,7 +11,7 @@ using Ucenje;
 // kreiranje objekte/instance klase Program
 //new Ucenje.E17KlasaObjekt.Program(); // poziva se konstruktor klase Program (5. vrsta metode)
 
-ZimskiZadatci.Main(new string[] { "1" });
+//ZimskiZadatci.Main(new string[] { "1" });
 
 //new Ucenje.E19GSALE.Program();
 
@@ -19,6 +19,8 @@ ZimskiZadatci.Main(new string[] { "1" });
 
 // kreiranje objekte/instance klase Program
 //new Ucenje.E17KlasaObjekt.Program(); // poziva se konstruktor klase Program (5. vrsta metode)
+
+GeneratorLozinki.Run();
 
 //E16Vjezbanje.Izvedi();
 

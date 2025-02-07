@@ -20,7 +20,9 @@ using Ucenje;
 // kreiranje objekte/instance klase Program
 //new Ucenje.E17KlasaObjekt.Program(); // poziva se konstruktor klase Program (5. vrsta metode)
 
-E10_GeneratorLozinki2.Izvedi();
+E10CiklicnaTablica.Izvedi();
+
+//E10_GeneratorLozinki2.Izvedi();
 
 //GeneratorLozinki.Run();
 

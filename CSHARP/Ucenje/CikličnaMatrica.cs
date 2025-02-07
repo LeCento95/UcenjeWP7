@@ -54,26 +54,29 @@ namespace Ucenje
                 }
                 break;
             }
-
             while (true)
             {
                 try
                 {
 
-                    if (kolona < 2 || kolona > 50)
+                    if (redova < 2 || redova > 50)
                     {
                         Console.WriteLine("Broj nije u dopuštenom rasponu, pokušajte ponovno!");
                         continue;
+
                     }
-                    break;
+
+
                 }
                 catch
                 {
                     Console.WriteLine("Nisi unio cijeli broj!");
                 }
-
+                break;
             }
+
             return true;
+
 
         }
 
@@ -102,8 +105,7 @@ namespace Ucenje
                 "Dolje lijevo početak, u kontra smjeru kazaljke na satu",
                 "Gore lijevo početak, u kontra smjeru kazaljke na satu",
                 "Gore desno početak, u kontra smjeru kazaljke na satu",
-                "Sredina početak(zadnji broj), cilj donji desni ugao, u smjeru kazaljke na satu",
-                "Sredina početak(zadnji broj), cilj gornji desni ugao, u smjeru kazaljke na satu"
+                
             };
 
             Console.WriteLine();
@@ -199,7 +201,7 @@ namespace Ucenje
             }
         }
 
-        // OSNOVNA CIKLIČNA TABLICA ---------------------------------------------------------
+        
         private static int[,] OsnovnaCiklicnaTablica(int redova, int kolona)
         {
             int cilj = redova * kolona;
@@ -214,25 +216,25 @@ namespace Ucenje
             while (brojac <= cilj)
             {
 
-                // Dolje desno prema lijevo------------------------------------------------------
+                // Dolje desno prema lijevo
                 for (int i = maxDesno; i >= maxLijevo && brojac <= cilj; i--)
                     tablica[maxDolje, i] = brojac++;
                 maxDolje--;
 
 
-                // Lijevo dolje prema gore-------------------------------------------------------------
+                // Lijevo dolje prema gore
                 for (int i = maxDolje; i >= maxGore && brojac <= cilj; i--)
                     tablica[i, maxLijevo] = brojac++;
                 maxLijevo++;
 
 
-                // Gore lijevo prema desno-----------------------------------------------------------
+                // Gore lijevo prema desno
                 for (int i = maxLijevo; i <= maxDesno && brojac <= cilj; i++)
                     tablica[maxGore, i] = brojac++;
                 maxGore++;
 
 
-                // Desno gore prema dolje----------------------------------------------------------------
+                // Desno gore prema dolje
                 for (int i = maxGore; i <= maxDolje && brojac <= cilj; i++)
                     tablica[i, maxDesno] = brojac++;
                 maxDesno--;
@@ -243,7 +245,7 @@ namespace Ucenje
 
         }
 
-        // TABLICA 2 ---------------------------------------------------------
+        
         private static int[,] Tablica2(int redova, int kolona)
         {
 
@@ -260,24 +262,24 @@ namespace Ucenje
             while (brojac <= cilj)
             {
 
-                // Lijevo dolje prema gore-------------------------------------------------------------
+                // Lijevo dolje prema gore
                 for (int i = maxDolje; i >= maxGore && brojac <= cilj; i--)
                     tablica[i, maxLijevo] = brojac++;
                 maxLijevo++;
 
 
-                // Gore lijevo prema desno-----------------------------------------------------------
+                // Gore lijevo prema desno
                 for (int i = maxLijevo; i <= maxDesno && brojac <= cilj; i++)
                     tablica[maxGore, i] = brojac++;
                 maxGore++;
 
 
-                // Desno gore prema dolje----------------------------------------------------------------
+                // Desno gore prema dolje
                 for (int i = maxGore; i <= maxDolje && brojac <= cilj; i++)
                     tablica[i, maxDesno] = brojac++;
                 maxDesno--;
 
-                // Dolje desno prema lijevo------------------------------------------------------
+                // Dolje desno prema lijevo
                 for (int i = maxDesno; i >= maxLijevo && brojac <= cilj; i--)
                     tablica[maxDolje, i] = brojac++;
                 maxDolje--;
@@ -286,7 +288,7 @@ namespace Ucenje
             return tablica;
         }
 
-        // TABLICA 3 ---------------------------------------------------------
+        
         private static int[,] Tablica3(int redova, int kolona)
         {
 
@@ -303,23 +305,23 @@ namespace Ucenje
             while (brojac <= cilj)
             {
 
-                // Gore lijevo prema desno-----------------------------------------------------------
+                // Gore lijevo prema desno
                 for (int i = maxLijevo; i <= maxDesno && brojac <= cilj; i++)
                     tablica[maxGore, i] = brojac++;
                 maxGore++;
 
 
-                // Desno gore prema dolje----------------------------------------------------------------
+                // Desno gore prema dolje
                 for (int i = maxGore; i <= maxDolje && brojac <= cilj; i++)
                     tablica[i, maxDesno] = brojac++;
                 maxDesno--;
 
-                // Dolje desno prema lijevo------------------------------------------------------
+                // Dolje desno prema lijevo
                 for (int i = maxDesno; i >= maxLijevo && brojac <= cilj; i--)
                     tablica[maxDolje, i] = brojac++;
                 maxDolje--;
 
-                // Lijevo dolje prema gore-------------------------------------------------------------
+                // Lijevo dolje prema gore
                 for (int i = maxDolje; i >= maxGore && brojac <= cilj; i--)
                     tablica[i, maxLijevo] = brojac++;
                 maxLijevo++;
@@ -328,7 +330,7 @@ namespace Ucenje
             return tablica;
         }
 
-        // TABLICA 4 ---------------------------------------------------------
+         
 
         private static int[,] Tablica4(int redova, int kolona)
         {
@@ -345,22 +347,22 @@ namespace Ucenje
 
             while (brojac <= cilj)
             {
-                // Desno gore prema dolje----------------------------------------------------------------
+                // Desno gore prema dolje
                 for (int i = maxGore; i <= maxDolje && brojac <= cilj; i++)
                     tablica[i, maxDesno] = brojac++;
                 maxDesno--;
 
-                // Dolje desno prema lijevo------------------------------------------------------
+                // Dolje desno prema lijevo
                 for (int i = maxDesno; i >= maxLijevo && brojac <= cilj; i--)
                     tablica[maxDolje, i] = brojac++;
                 maxDolje--;
 
-                // Lijevo dolje prema gore-------------------------------------------------------------
+                // Lijevo dolje prema gore
                 for (int i = maxDolje; i >= maxGore && brojac <= cilj; i--)
                     tablica[i, maxLijevo] = brojac++;
                 maxLijevo++;
 
-                // Gore lijevo prema desno-----------------------------------------------------------
+                // Gore lijevo prema desno
                 for (int i = maxLijevo; i <= maxDesno && brojac <= cilj; i++)
                     tablica[maxGore, i] = brojac++;
                 maxGore++;
@@ -369,7 +371,7 @@ namespace Ucenje
             return tablica;
         }
 
-        // TABLICA 5 ---------------------------------------------------------
+        
 
         private static int[,] Tablica5(int redova, int kolona)
         {
@@ -386,25 +388,25 @@ namespace Ucenje
 
             while (brojac <= cilj)
             {
-                // Desno dolje prema gore----------------------------------------------------------------
+                // Desno dolje prema gore
                 for (int i = maxDolje; i >= maxGore && brojac <= cilj; i--)
                     tablica[i, maxDesno] = brojac++;
                 maxDesno--;
 
 
-                // Gore desno prema lijevo------------------------------------------------------
+                // Gore desno prema lijevo
                 for (int i = maxDesno; i >= maxLijevo && brojac <= cilj; i--)
                     tablica[maxGore, i] = brojac++;
                 maxGore++;
 
 
-                // Lijevo gore prema dolje-------------------------------------------------------------
+                // Lijevo gore prema dolje
                 for (int i = maxGore; i <= maxDolje && brojac <= cilj; i++)
                     tablica[i, maxLijevo] = brojac++;
                 maxLijevo++;
 
 
-                // Dolje lijevo prema desno-----------------------------------------------------------
+                // Dolje lijevo prema desno
                 for (int i = maxLijevo; i <= maxDesno && brojac <= cilj; i++)
                     tablica[maxDolje, i] = brojac++;
                 maxDolje--;
@@ -413,12 +415,10 @@ namespace Ucenje
             return tablica;
         }
 
-        // TABLICA 6 ---------------------------------------------------------
+       
 
         private static int[,] Tablica6(int redova, int kolona)
         {
-
-
             int cilj = redova * kolona;
             int brojac = 1;
             int maxLijevo = 0;
@@ -430,34 +430,30 @@ namespace Ucenje
 
             while (brojac <= cilj)
             {
-                // Gore desno prema lijevo------------------------------------------------------
+                // Gore desno prema lijevo
                 for (int i = maxDesno; i >= maxLijevo && brojac <= cilj; i--)
                     tablica[maxGore, i] = brojac++;
                 maxGore++;
 
-
-                // Lijevo gore prema dolje-------------------------------------------------------------
+                // Lijevo gore prema dolje
                 for (int i = maxGore; i <= maxDolje && brojac <= cilj; i++)
                     tablica[i, maxLijevo] = brojac++;
                 maxLijevo++;
 
-
-                // Dolje lijevo prema desno-----------------------------------------------------------
+                // Dolje lijevo prema desno
                 for (int i = maxLijevo; i <= maxDesno && brojac <= cilj; i++)
                     tablica[maxDolje, i] = brojac++;
                 maxDolje--;
 
-                // Desno dolje prema gore----------------------------------------------------------------
+                // Desno dolje prema gore
                 for (int i = maxDolje; i >= maxGore && brojac <= cilj; i--)
                     tablica[i, maxDesno] = brojac++;
                 maxDesno--;
-
             }
             return tablica;
         }
 
-        // TABLICA 7 ---------------------------------------------------------
-
+       
         private static int[,] Tablica7(int redova, int kolona)
         {
 
@@ -473,23 +469,23 @@ namespace Ucenje
 
             while (brojac <= cilj)
             {
-                // Lijevo gore prema dolje-------------------------------------------------------------
+                // Lijevo gore prema dolje
                 for (int i = maxGore; i <= maxDolje && brojac <= cilj; i++)
                     tablica[i, maxLijevo] = brojac++;
                 maxLijevo++;
 
 
-                // Dolje lijevo prema desno-----------------------------------------------------------
+                // Dolje lijevo prema desno
                 for (int i = maxLijevo; i <= maxDesno && brojac <= cilj; i++)
                     tablica[maxDolje, i] = brojac++;
                 maxDolje--;
 
-                // Desno dolje prema gore----------------------------------------------------------------
+                // Desno dolje prema gore
                 for (int i = maxDolje; i >= maxGore && brojac <= cilj; i--)
                     tablica[i, maxDesno] = brojac++;
                 maxDesno--;
 
-                // Gore desno prema lijevo------------------------------------------------------
+                // Gore desno prema lijevo
                 for (int i = maxDesno; i >= maxLijevo && brojac <= cilj; i--)
                     tablica[maxGore, i] = brojac++;
                 maxGore++;
@@ -498,7 +494,7 @@ namespace Ucenje
             return tablica;
         }
 
-        // TABLICA 8 ---------------------------------------------------------
+       
 
         private static int[,] Tablica8(int redova, int kolona)
         {
@@ -515,22 +511,22 @@ namespace Ucenje
 
             while (brojac <= cilj)
             {
-                // Dolje lijevo prema desno-----------------------------------------------------------
+                // Dolje lijevo prema desno
                 for (int i = maxLijevo; i <= maxDesno && brojac <= cilj; i++)
                     tablica[maxDolje, i] = brojac++;
                 maxDolje--;
 
-                // Desno dolje prema gore----------------------------------------------------------------
+                // Desno dolje prema gore
                 for (int i = maxDolje; i >= maxGore && brojac <= cilj; i--)
                     tablica[i, maxDesno] = brojac++;
                 maxDesno--;
 
-                // Gore desno prema lijevo------------------------------------------------------
+                // Gore desno prema lijevo
                 for (int i = maxDesno; i >= maxLijevo && brojac <= cilj; i--)
                     tablica[maxGore, i] = brojac++;
                 maxGore++;
 
-                // Lijevo gore prema dolje-------------------------------------------------------------
+                // Lijevo gore prema dolje
                 for (int i = maxGore; i <= maxDolje && brojac <= cilj; i++)
                     tablica[i, maxLijevo] = brojac++;
                 maxLijevo++;
@@ -539,8 +535,7 @@ namespace Ucenje
             return tablica;
         }
 
-        // TABLICA 9 ---------------------------------------------------------
-        // Sredina(ono što je bio kraj u prvih 8 primjera) lijevo u smjeru kazaljke na satu
+        
 
         private static int[,] Tablica9(int redova, int kolona)
         {
@@ -555,25 +550,25 @@ namespace Ucenje
 
             while (brojac >= cilj)
             {
-                // Desno dolje prema gore----------------------------------------------------------------
+                // Desno dolje prema gore
                 for (int i = maxDolje; i >= maxGore && brojac >= cilj; i--)
                     tablica[i, maxDesno] = brojac--;
                 maxDesno--;
 
 
-                // Gore desno prema lijevo------------------------------------------------------
+                // Gore desno prema lijevo
                 for (int i = maxDesno; i >= maxLijevo && brojac >= cilj; i--)
                     tablica[maxGore, i] = brojac--;
                 maxGore++;
 
 
-                // Lijevo gore prema dolje-------------------------------------------------------------
+                // Lijevo gore prema dolje
                 for (int i = maxGore; i <= maxDolje && brojac >= cilj; i++)
                     tablica[i, maxLijevo] = brojac--;
                 maxLijevo++;
 
 
-                // Dolje lijevo prema desno-----------------------------------------------------------
+                // Dolje lijevo prema desno
                 for (int i = maxLijevo; i <= maxDesno && brojac >= cilj; i++)
                     tablica[maxDolje, i] = brojac--;
                 maxDolje--;
@@ -582,8 +577,7 @@ namespace Ucenje
             return tablica;
         }
 
-        //TABLICA 10--------------------------------------------------
-
+        
         private static int[,] Tablica10(int redova, int kolona)
         {
 
@@ -599,24 +593,24 @@ namespace Ucenje
 
             while (brojac >= cilj)
             {
-                // Gore desno prema lijevo------------------------------------------------------
+                // Gore desno prema lijevo
                 for (int i = maxDesno; i >= maxLijevo && brojac >= cilj; i--)
                     tablica[maxGore, i] = brojac--;
                 maxGore++;
 
 
-                // Lijevo gore prema dolje-------------------------------------------------------------
+                // Lijevo gore prema dolje
                 for (int i = maxGore; i <= maxDolje && brojac >= cilj; i++)
                     tablica[i, maxLijevo] = brojac--;
                 maxLijevo++;
 
 
-                // Dolje lijevo prema desno-----------------------------------------------------------
+                // Dolje lijevo prema desno
                 for (int i = maxLijevo; i <= maxDesno && brojac >= cilj; i++)
                     tablica[maxDolje, i] = brojac--;
                 maxDolje--;
 
-                // Desno dolje prema gore----------------------------------------------------------------
+                // Desno dolje prema gore
                 for (int i = maxDolje; i >= maxGore && brojac >= cilj; i--)
                     tablica[i, maxDesno] = brojac--;
                 maxDesno--;
@@ -625,7 +619,7 @@ namespace Ucenje
             return tablica;
         }
 
-        // ISPIŠI TABLICU-----------------------------------------------------------------------------------------------------------------
+       
         private static void IspisiTablicu(int[,] tablica)
         {
             ConsoleColor[] boje = { ConsoleColor.Red, ConsoleColor.Yellow, ConsoleColor.Green, ConsoleColor.Blue, ConsoleColor.Cyan, ConsoleColor.Magenta };

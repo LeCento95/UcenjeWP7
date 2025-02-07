@@ -18,7 +18,7 @@ namespace Ucenje
                 "Dobar dan, ja sam {0} {1}, i imam {2} godina",
                 E14Metode.UcitajString("Unesi svoje ime","Ime obavezno"),
                 E14Metode.UcitajString("Unesi prezime","I prezime je obavezno"),
-                E14Metode.UcitajBroj("I unesi svoje godine",1,110)
+                E14Metode.UcitajCijeliBroj("I unesi svoje godine",1,110)
                 );
         }
     }

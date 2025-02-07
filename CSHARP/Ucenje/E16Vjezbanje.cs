@@ -31,7 +31,7 @@ namespace Ucenje
 
         private static void OdabirOpcijeIzbornika()
         {
-            switch (E14Metode.UcitajBroj("Odaberi opciju izbornika"))
+            switch (E14Metode.UcitajCijeliBroj("Odaberi opciju izbornika"))
             {
                 case 1:
                     ParnostBroja();
@@ -128,7 +128,7 @@ namespace Ucenje
         private static void ParnostBroja()
         {
             NaslovPrograma("Program za uneseni broj ispisuje da li je paran ili ne.");
-            int broj = E14Metode.UcitajBroj("Unesi cijeli broj za provjeru", 1, 100);
+            int broj = E14Metode.UcitajCijeliBroj("Unesi cijeli broj za provjeru", 1, 100);
             if (broj % 2 == 0)
             {
                 Console.WriteLine("Broj {0} je paran",broj);

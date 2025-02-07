@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,169 +10,153 @@ namespace Ucenje
     internal class E14Metode
     {
 
-        // metoda je organizacijska jedinica koda koja služi određenoj svrsi
-        // Cilj rada s metodama: Write once, use everywhere
-        // static - označava da se metoda može pozvati na klasi
         public static void Izvedi()
         {
-            Console.WriteLine("E14");
-            // Metode se sastoje od dva djela:
+            // metode se sastoje od dva dijela
             // 1. Tijelo metode
             // 2. Poziv metode
 
-            // iz statične metode na klasi može samo pozvati drugu statičnu metodu, posljedično sve nađe metoda danas će biti statične
-
             // poziv metode
             Tip1();
-           
+            Tip1();
+
+            Tip2(7);
             Tip2(5);
 
-            Tip2(3, "Osijek");
+            Tip2(10, "Poziv druge varijante metode Tip2");
 
-            Console.WriteLine(Tip3());
-            // svi prosti brojevi od 1 do 100
-            for(int i = 1; i < 100; i++)
+            int i = Tip3() + 1;
+            Console.WriteLine(i);
+
+            int[] niz = { 2, 5, 2, 1, 4, 1, 2, 1, 4, 2, 3 };
+            Console.WriteLine(Tip4(niz));
+
+            // Metopda koja vraća vrijednost može biti pozvana i kao void metoda
+            Tip4(niz); // ona će se izvesti ali njezin rezultat nema efekta u ovoj metodi
+
+        }
+
+        // Tijelo metode
+        // Tip 1: Ne prima parametre, ne vraća vrijednost
+        static void Tip1(/* Ovdje dođu parametri ili ne */) //void je oznaka da ne vraća vrijednost (praznina)
+        {
+            Console.WriteLine("Ispis iz 1. tipa metode");
+            Console.WriteLine("***********************");
+            Console.WriteLine("Kraj ispisa iz 1. tipa metode");
+        }
+
+        // Tip 2: Prima parametre ali ne vraća vrijednost
+        private static void Tip2(int x) // x je parametar tipa int
+        {
+            for (int i = 0; i < x; i++)
             {
-                if (Tip4(i))
-                {
-                    Console.WriteLine(i);
-                }
+                Console.WriteLine(i);
             }
 
-            
-
         }
 
-        // prvo se piše tijelo metode
+        // potpis metode:
+        // naziv + lista parametara
+        // Method overloading
+        private static void Tip2(int x, string naslov)
+        {
+            Console.WriteLine(naslov);
+            Tip2(x);
+        }
+
+        // Tip 3: Ne prima parametre ali vraća vrijednost
+        private static int Tip3()
+        {
+            return int.MaxValue; // svaka metoda tipa koji nije void mora imati return
+        }
+
+
+        // Tip 4: Prima parametre i vraća vrijednost
         /// <summary>
-        /// Metoda tipa 1: Ne vraća vrijednost, ne prima vrijednost
-        /// ne vraća vrijednost - void
-        /// ne prima vrijednost - u zagradama nakon naziva metode nema parametara
-        /// mora trenutno biti static
-        /// ne piše public ili nešto drugo: radi se o načinu pristupa;
-        /// bez navođenja: vidljivo samo u ovoj klasi
+        /// Metoda će za primljeni niz cijelih brojeva vratiti sumu
         /// </summary>
-        static void Tip1()
+        /// <param name="niz">Niz cijelih brojeva</param>
+        /// <returns>Suma primljenih brojeva</returns>
+        private static int Tip4(int[] niz)
         {
-            Console.WriteLine("Ispis iz metode Tip 1");
-        }
-
-
-        // 2. ne vraća vrijednost, prima parametre
-        // int i je parametar
-        /// <summary>
-        /// Metoda koja ispisuje broj i njegovo uvećanje za 10
-        /// </summary>
-        /// <param name="i">Primljeni broj</param>
-        private static void Tip2(int i)
-        {
-            Console.WriteLine("Primio sam broj {0}", i);
-            Console.WriteLine("Uvećan za 10 on iznosi {0}", i+10);
-        } 
-
-        // potpis metode: naziv metode + lista parametara koje prima
-        protected static void Tip2(int i, string s) // method overloading
-        {
-            Console.WriteLine(s);
-            Console.WriteLine("Primio sam {0}",i);
-        }
-
-
-        // 3. vraća vrijednost, ne prima parametre
-        public static string Tip3()
-        {
-            // ako nije void, metoda mora vratiti (return) ona tip za koji je deklarirana
-            return "Web programiranje";
-        }
-
-        // 4. [NAJZANIMLJIVIJA] vraća vrijednost, prima parametre
-        /// <summary>
-        /// Za dani broj odlučuje da li je prim ili ne
-        /// </summary>
-        /// <param name="broj">Broj koji se analizira</param>
-        /// <returns>true ako je prim, false ako nije</returns>
-        public static bool Tip4(int broj)
-        {
-         
-            for(int i = 2; i < broj; i++)
+            int suma = 0;
+            foreach (int i in niz)
             {
-                if (broj % i == 0)
-                {
-                    // short cuircuiting
-                    // prekidam i petlju i metodu i vraća false
-                    return false;
-                }
+                suma += i;
             }
-
-            return true;
+            return suma;
         }
 
 
-        public static int UcitajBroj(string poruka)
+
+        // NAMA BITNE METODE
+        // Write once, use everywhere
+
+        public static int UcitajCijeliBroj(string poruka)
         {
+
             while (true)
             {
-                Console.Write(poruka + ": ");
+                Console.Write(poruka);
                 try
                 {
                     return int.Parse(Console.ReadLine());
                 }
-                catch 
+                catch
                 {
-                    Console.WriteLine("Niste unijeli broj");
+                    Console.WriteLine("Problem kod učitanja broja!");
                 }
             }
-            //return 0; //samo da ne bude greška, kasnije obrisati
         }
 
-        public static int UcitajBroj(string poruka, int min, int max)
+        public static int UcitajCijeliBroj(string poruka, int min, int max)
         {
-            int i = 0;
-            for(; ; )
+
+            while (true)
             {
-                Console.Write(poruka + ": ");
+                Console.Write(poruka);
                 try
                 {
-                    i = int.Parse(Console.ReadLine());
-                    if(i<min || i > max)
+                    int i = int.Parse(Console.ReadLine());
+                    if (i < min || i > max)
                     {
-                        Console.WriteLine("Broj nije u danom rasponu {0} i {1}",min,max);
-                        continue;
+                        Console.WriteLine("Broj nije u danom rasponu {0}-{1}", min, max);
                     }
                     return i;
                 }
-                catch 
+                catch
                 {
-                    Console.WriteLine("Nisi unio broj!");
-                   
+                    Console.WriteLine("Problem kod učitanja broja!");
                 }
             }
+
+
+            // return 0; // kasnije obrisati
         }
 
-
-
-        /// <summary>
-        /// Unosi string
-        /// </summary>
-        /// <param name="poruka">Poruka koja se ispijuje korisniku</param>
-        /// <param name="greska">Poruka greške u slučaju da nije napravio unos</param>
-        /// <returns>String koji je unio korisnik</returns>
-        public static string UcitajString(string poruka, string greska)
+        public static string UcitajString(string poruka, string v)
         {
-            string s;
-            do
+            string s = "";
+            while (true)
             {
-                Console.Write(poruka + ": ");
-                s = Console.ReadLine();
-                if (s.Trim().Length == 0)
+                Console.Write(poruka);
+                s = Console.ReadLine().Trim();
+                if (s.Length == 0)
                 {
-                    Console.WriteLine(greska);
+                    Console.WriteLine("Obavezan unos");
                     continue;
                 }
                 return s;
-            } while (true);
-        }
+            }
 
+            //return "";
+
+        }
+        public static bool UcitajBool(string poruka, string uvjetZaTrue)
+        {
+            Console.Write(poruka);
+            return Console.ReadLine().Trim().ToUpper() == uvjetZaTrue.ToUpper();
+        }
 
 
 

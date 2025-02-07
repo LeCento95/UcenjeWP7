@@ -13,8 +13,8 @@ namespace Ucenje
         /// </summary>
         public static void Izvedi()
         {
-            Console.WriteLine(E14Metode.UcitajBroj("Unesi prvi broj",10,20) 
-                + E14Metode.UcitajBroj("Unesi drugi broj",1,10));
+            Console.WriteLine(E14Metode.UcitajCijeliBroj("Unesi prvi broj",10,20) 
+                + E14Metode.UcitajCijeliBroj("Unesi drugi broj",1,10));
         }
 
     }

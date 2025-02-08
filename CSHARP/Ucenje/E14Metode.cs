@@ -134,7 +134,7 @@ namespace Ucenje
             // return 0; // kasnije obrisati
         }
 
-        public static string UcitajString(string poruka, string v)
+        public static string UcitajString(string poruka)
         {
             string s = "";
             while (true)
@@ -158,8 +158,9 @@ namespace Ucenje
             return Console.ReadLine().Trim().ToUpper() == uvjetZaTrue.ToUpper();
         }
 
-
-
-
+        internal static string UcitajString(string v1, string v2)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

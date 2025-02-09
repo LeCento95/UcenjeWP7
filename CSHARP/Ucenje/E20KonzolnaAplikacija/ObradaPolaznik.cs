@@ -11,7 +11,7 @@ namespace Ucenje.E20KonzolnaAplikacija
         public ObradaPolaznik() 
         { 
             Polaznici = new List<Polaznik>();
-            if (Pomocno.DEV)
+            if (PomocnoRR.DEV)
             {
                 UcitajTestnePodatke();
             }
@@ -42,7 +42,7 @@ namespace Ucenje.E20KonzolnaAplikacija
 
         private void OdabirOpcijeIzbornika()
         {
-           switch(Pomocno.UcitajRasponBroja("Odaberite stavku izbornika", 1, 5))
+           switch(PomocnoRR.UcitajRasponBroja("Odaberite stavku izbornika", 1, 5))
             {
                 case 1:
                     PrikaziPolaznike();
@@ -70,10 +70,10 @@ namespace Ucenje.E20KonzolnaAplikacija
         {
             PrikaziPolaznike();
             var odabrani = Polaznici[
-                Pomocno.UcitajRasponBroja("Odaberi redni broj polaznika za brisanje",
+                PomocnoRR.UcitajRasponBroja("Odaberi redni broj polaznika za brisanje",
                 1, Polaznici.Count) - 1
                 ];
-            if (Pomocno.UcitajBool("Sigurno obrisati " + odabrani.Ime + " " + odabrani.Prezime + "? (DA/NE)", "da"))
+            if (PomocnoRR.UcitajBool("Sigurno obrisati " + odabrani.Ime + " " + odabrani.Prezime + "? (DA/NE)", "da"))
             {
                 Polaznici.Remove(odabrani);
             }
@@ -83,14 +83,14 @@ namespace Ucenje.E20KonzolnaAplikacija
         {
             PrikaziPolaznike();
             var odabrani = Polaznici[
-                Pomocno.UcitajRasponBroja("Odaberi redni broj polaznika za promjenu",
+                PomocnoRR.UcitajRasponBroja("Odaberi redni broj polaznika za promjenu",
                 1,Polaznici.Count)-1
                 ];
-            odabrani.Sifra = Pomocno.UcitajRasponBroja("Unesi šifru polaznika", 1, int.MaxValue);
-            odabrani.Ime = Pomocno.UcitajString(odabrani.Ime,"Unesi ime polaznika", 50, true);
-            odabrani.Prezime = Pomocno.UcitajString("Unesi prezime polaznika", 50, true);
-            odabrani.Email = Pomocno.UcitajString("Unesi email polaznika", 50, true);
-            odabrani.OIB = Pomocno.UcitajString("Unesi OIB polaznika", 50, true);
+            odabrani.Sifra = PomocnoRR.UcitajRasponBroja("Unesi šifru polaznika", 1, int.MaxValue);
+            odabrani.Ime = PomocnoRR.UcitajString(odabrani.Ime,"Unesi ime polaznika", 50, true);
+            odabrani.Prezime = PomocnoRR.UcitajString("Unesi prezime polaznika", 50, true);
+            odabrani.Email = PomocnoRR.UcitajString("Unesi email polaznika", 50, true);
+            odabrani.OIB = PomocnoRR.UcitajString("Unesi OIB polaznika", 50, true);
         }
 
         public void PrikaziPolaznike()
@@ -116,11 +116,11 @@ namespace Ucenje.E20KonzolnaAplikacija
             Console.WriteLine("Unesite tražene podatke o polazniku");
             Polaznici.Add(new()
             {
-                Sifra = Pomocno.UcitajRasponBroja("Unesi šifru polaznika", 1, int.MaxValue),
-                Ime = Pomocno.UcitajString("Unesi ime polaznika", 50, true),
-                Prezime = Pomocno.UcitajString("Unesi prezime polaznika", 50, true),
-                Email = Pomocno.UcitajString("Unesi email polaznika", 50, true),
-                OIB = Pomocno.UcitajString("Unesi OIB polaznika", 50, true)
+                Sifra = PomocnoRR.UcitajRasponBroja("Unesi šifru polaznika", 1, int.MaxValue),
+                Ime = PomocnoRR.UcitajString("Unesi ime polaznika", 50, true),
+                Prezime = PomocnoRR.UcitajString("Unesi prezime polaznika", 50, true),
+                Email = PomocnoRR.UcitajString("Unesi email polaznika", 50, true),
+                OIB = PomocnoRR.UcitajString("Unesi OIB polaznika", 50, true)
             });
         }
     }

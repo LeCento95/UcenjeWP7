@@ -4,6 +4,14 @@
 
 using Ucenje;
 
+
+
+
+new Ucenje.E20RestoranRezervacije.Izbornik();
+
+
+//new Ucenje.E20KonzolnaAplikacija.Izbornik();
+
 //new Ucenje.E19GSALE.Program();
 
 //new Ucenje.E18NasljedivanjePolimorfizam.Program("E18 drugi konstruktor");
@@ -12,19 +20,6 @@ using Ucenje;
 //new Ucenje.E17KlasaObjekt.Program(); // poziva se konstruktor klase Program (5. vrsta metode)
 
 //ZimskiZadatci.Main(new string[] { "1" });
-
-//new Ucenje.E19GSALE.Program();
-
-//new Ucenje.E18NasljedivanjePolimorfizam.Program("E18 drugi konstruktor");
-
-// kreiranje objekte/instance klase Program
-//new Ucenje.E17KlasaObjekt.Program(); // poziva se konstruktor klase Program (5. vrsta metode)
-
-E10LjubavniKlakulator.Izvedi();
-
-//E10_GeneratorLozinki2.Izvedi();
-
-//GeneratorLozinki.Run();
 
 //E16Vjezbanje.Izvedi();
 
@@ -43,6 +38,12 @@ E10LjubavniKlakulator.Izvedi();
 //E12ForEach.Izvedi();
 
 //E11DoWhilePetlja.Izvedi();
+
+//E10LjubavniKlakulator.Izvedi();
+
+//E10_GeneratorLozinki2.Izvedi();
+
+//GeneratorLozinki.Run();
 
 //E10WhilePetlja.Izvedi();
 

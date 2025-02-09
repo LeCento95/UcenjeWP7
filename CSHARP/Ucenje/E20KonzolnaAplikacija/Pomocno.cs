@@ -1,6 +1,6 @@
 ﻿namespace Ucenje.E20KonzolnaAplikacija
 {
-    internal class Pomocno
+    internal class PomocnoRR
     {
 
         public static bool DEV=false;
@@ -62,7 +62,7 @@
             }
         }
 
-        internal static int UcitajRasponBroja(string poruka, int min, int max)
+        internal static int UcitajRasponBroja(string poruka, int min, int max, int brojOsoba)
         {
             int b;
             while (true) 
@@ -147,7 +147,7 @@
         }
 
 
-        //za Bernardu
+        
         public static T UcitajEnumSubota<T>(string poruka) where T : struct, Enum
         {
             Console.WriteLine(poruka);
@@ -167,6 +167,116 @@
             }
         }
 
+        internal static DateTime UcitajDatumVrijeme(string v, DateTime datumVrijeme)
+        {
+            DateTime d;
+            while (true)
+            {
+                try
+                {
+                    Console.WriteLine("Format unosa je yyyy-MM-dd HH:mm, za današnji datum {0}",
+                        DateTime.Now.ToString("yyyy-MM-dd HH:mm"));
 
+                    Console.Write(v + ": ");
+                    string unos = Console.ReadLine();
+                    if (string.IsNullOrEmpty(unos))
+                    {
+                        return datumVrijeme; // Vrati staru vrijednost ako je unos prazan
+                    }
+                    d = DateTime.Parse(unos);
+                    return d;
+                }
+                catch
+                {
+                    Console.WriteLine("Unos datuma i vremena nije dobar");
+                }
+            }
+        }
+
+        internal static int UcitajBroj(string v)
+        {
+            int b;
+            while (true)
+            {
+                try
+                {
+                    Console.Write(v + ": ");
+                    b = int.Parse(Console.ReadLine());
+                    return b;
+                }
+                catch
+                {
+                    Console.WriteLine("Unos broja nije dobar");
+                }
+            }
+        }
+
+        internal static bool UcitajBool(string v)
+        {
+            while (true)
+            {
+                try
+                {
+                    Console.Write(v + ": ");
+                    string unos = Console.ReadLine().Trim().ToLower();
+                    if (unos == "true" || unos == "1")
+                    {
+                        return true;
+                    }
+                    else if (unos == "false" || unos == "0")
+                    {
+                        return false;
+                    }
+                    else
+                    {
+                        throw new Exception();
+                    }
+                }
+                catch
+                {
+                    Console.WriteLine("Unos mora biti 'true' ili 'false'");
+                }
+            }
+        }
+
+        internal static int UcitajRasponBroja(string v1, int v2, int maxValue)
+        {
+            int b;
+            while (true)
+            {
+                try
+                {
+                    Console.Write(v1 + ": ");
+                    b = int.Parse(Console.ReadLine());
+                    if (b < v2 || b > maxValue)
+                    {
+                        throw new Exception();
+                    }
+                    return b;
+                }
+                catch
+                {
+                    Console.WriteLine("Unos mora biti u rasponu {0} i {1}", v2, maxValue);
+                }
+            }
+        }
+
+        internal static decimal UcitajDecimal(string v, decimal cijena)
+        {
+            decimal b;
+            while (true)
+            {
+                try
+                {
+                    Console.Write(v + ": ");
+                    b = decimal.Parse(Console.ReadLine());
+                    return b;
+                }
+                catch
+                {
+                    Console.WriteLine("Unos decimalnog broja nije dobar.");
+                }
+            }
+        }
     }
 }

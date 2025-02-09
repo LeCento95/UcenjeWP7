@@ -10,7 +10,7 @@ namespace Ucenje.E20KonzolnaAplikacija
         public ObradaSmjer() 
         { 
             Smjerovi = new List<Smjer>();
-            if (Pomocno.DEV)
+            if (PomocnoRR.DEV)
             {
                 UcitajTestnePodatke();
             }
@@ -37,7 +37,7 @@ namespace Ucenje.E20KonzolnaAplikacija
 
         private void OdabirOpcijeIzbornika()
         {
-           switch(Pomocno.UcitajRasponBroja("Odaberite stavku izbornika", 1, 6))
+           switch(PomocnoRR.UcitajRasponBroja("Odaberite stavku izbornika", 1, 6))
             {
                 case 1:
                     PrikaziSmjerove();
@@ -69,7 +69,7 @@ namespace Ucenje.E20KonzolnaAplikacija
         {
             PrikaziSmjerove();
             var s = Smjerovi[
-                Pomocno.UcitajRasponBroja("Odaberi redni broj smjera za detalje",1,Smjerovi.Count)-1
+                PomocnoRR.UcitajRasponBroja("Odaberi redni broj smjera za detalje",1,Smjerovi.Count)-1
                 ];
             Console.WriteLine("--------------------");
             Console.WriteLine("Detalji smjera:");
@@ -85,10 +85,10 @@ namespace Ucenje.E20KonzolnaAplikacija
         private void ObrisiPostojeciSmjer()
         {
             PrikaziSmjerove();
-            var odabrani = Smjerovi[Pomocno.UcitajRasponBroja("Odaberi redni broj smjera za Brisanje",
+            var odabrani = Smjerovi[PomocnoRR.UcitajRasponBroja("Odaberi redni broj smjera za Brisanje",
                 1, Smjerovi.Count) - 1];
 
-            if(Pomocno.UcitajBool("Sigurno obrisati " +  odabrani.Naziv + "? (DA/NE)", "da"))
+            if(PomocnoRR.UcitajBool("Sigurno obrisati " +  odabrani.Naziv + "? (DA/NE)", "da"))
             {
                 Smjerovi.Remove(odabrani);
             }
@@ -98,33 +98,33 @@ namespace Ucenje.E20KonzolnaAplikacija
         private void PromjeniPostojeciSmjer()
         {
             PrikaziSmjerove();
-            var odabrani = Smjerovi[Pomocno.UcitajRasponBroja("Odaberi redni broj smjera za promjenu",
+            var odabrani = Smjerovi[PomocnoRR.UcitajRasponBroja("Odaberi redni broj smjera za promjenu",
                 1, Smjerovi.Count) - 1];
 
-            if(Pomocno.UcitajRasponBroja("1. Mjenjaš sve\n2. Pojedinačna promjena", 1, 2) == 1)
+            if(PomocnoRR.UcitajRasponBroja("1. Mjenjaš sve\n2. Pojedinačna promjena", 1, 2) == 1)
             {
                 // poziv API-u da se javi tko ovo koristi
-                odabrani.Sifra = Pomocno.UcitajRasponBroja("Unesi šifru smjera", 1, int.MaxValue);
-                odabrani.Naziv = Pomocno.UcitajString("Unesi naziv smjera", 50, true);
-                odabrani.Cijena = Pomocno.UcitajDecimalniBroj("Unesi cijenu smjera", 0, 10000);
-                odabrani.IzvodiSeOd = Pomocno.UcitajDatum("Unesi datum od kada se izvodi smjer", true);
-                odabrani.Vaucer = Pomocno.UcitajBool("Da li je smjer vaučer (DA/NE)", "da");
+                odabrani.Sifra = PomocnoRR.UcitajRasponBroja("Unesi šifru smjera", 1, int.MaxValue);
+                odabrani.Naziv = PomocnoRR.UcitajString("Unesi naziv smjera", 50, true);
+                odabrani.Cijena = PomocnoRR.UcitajDecimalniBroj("Unesi cijenu smjera", 0, 10000);
+                odabrani.IzvodiSeOd = PomocnoRR.UcitajDatum("Unesi datum od kada se izvodi smjer", true);
+                odabrani.Vaucer = PomocnoRR.UcitajBool("Da li je smjer vaučer (DA/NE)", "da");
                 
             }
             else{
                 // poziv API-u da se javi tko ovo koristi
-                switch (Pomocno.UcitajRasponBroja("1. Šifra\n2. Naziv\n3. Trajanje\n4. Izvodi se od\n" +
+                switch (PomocnoRR.UcitajRasponBroja("1. Šifra\n2. Naziv\n3. Trajanje\n4. Izvodi se od\n" +
                     "5. Vaučer",1,5))
                 {
                     case 1:
-                    odabrani.Sifra = Pomocno.UcitajRasponBroja("Unesi šifru smjera", 1, int.MaxValue);
+                    odabrani.Sifra = PomocnoRR.UcitajRasponBroja("Unesi šifru smjera", 1, int.MaxValue);
                     break;
                     case 2:
-                        odabrani.Naziv = Pomocno.UcitajString("Unesi naziv smjera", 50, true, odabrani.Naziv);
+                        odabrani.Naziv = PomocnoRR.UcitajString("Unesi naziv smjera", 50, true, odabrani.Naziv);
                         break;
                     // ... ostali
                     case 5:
-                        odabrani.Vaucer = Pomocno.UcitajBool("Da li je smjer vaučer (DA/NE)", "da");
+                        odabrani.Vaucer = PomocnoRR.UcitajBool("Da li je smjer vaučer (DA/NE)", "da");
                         break;
 
                 }
@@ -156,11 +156,11 @@ namespace Ucenje.E20KonzolnaAplikacija
             Console.WriteLine("Unesite tražene podatke o smjeru");
             Smjerovi.Add(new()
             {
-                Sifra = Pomocno.UcitajRasponBroja("Unesi šifru smjera", 1, int.MaxValue),
-                Naziv = Pomocno.UcitajString("Unesi naziv smjera", 50, true),
-                Cijena = Pomocno.UcitajDecimalniBroj("Unesi cijenu smjera", 0, 10000),
-                IzvodiSeOd = Pomocno.UcitajDatum("Unesi datum od kada se izvodi smjer", true),
-                Vaucer = Pomocno.UcitajBool("Da li je smjer vaučer (DA/NE)","da"),
+                Sifra = PomocnoRR.UcitajRasponBroja("Unesi šifru smjera", 1, int.MaxValue),
+                Naziv = PomocnoRR.UcitajString("Unesi naziv smjera", 50, true),
+                Cijena = PomocnoRR.UcitajDecimalniBroj("Unesi cijenu smjera", 0, 10000),
+                IzvodiSeOd = PomocnoRR.UcitajDatum("Unesi datum od kada se izvodi smjer", true),
+                Vaucer = PomocnoRR.UcitajBool("Da li je smjer vaučer (DA/NE)","da"),
                 DatumPromjene = DateTime.Now
             });
         }

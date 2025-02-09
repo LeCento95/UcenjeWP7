@@ -17,7 +17,7 @@ namespace Ucenje.E20KonzolnaAplikacija
 
         public Izbornik() 
         {
-            Pomocno.DEV = false;
+            PomocnoRR.DEV = false;
             ObradaSmjer = new ObradaSmjer();
             ObradaPolaznik = new ObradaPolaznik();
             ObradaGrupa = new ObradaGrupa(this);
@@ -55,7 +55,7 @@ namespace Ucenje.E20KonzolnaAplikacija
         private void OdabirOpcijeIzbornika()
         {
             
-            switch(Pomocno.UcitajRasponBroja("Odaberite stavku izbornika", 1, 5))
+            switch(PomocnoRR.UcitajRasponBroja("Odaberite stavku izbornika", 1, 5))
             {
                 case 1:
                     Console.Clear();
@@ -141,7 +141,7 @@ namespace Ucenje.E20KonzolnaAplikacija
 
         private void SpremiPodatke()
         {
-            if (Pomocno.DEV)
+            if (PomocnoRR.DEV)
             {
                 return;
             }

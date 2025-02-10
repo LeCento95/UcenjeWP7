@@ -12,7 +12,7 @@ namespace Ucenje.E20RestoranRezervacije
     {
         public List<Gost>   Gosti { get; set; }
 
-        public ObradaGost()
+        public ObradaGost() 
         {
             Gosti = new List<Gost>();
             if (PomocnoRR.DEV)

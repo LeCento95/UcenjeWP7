@@ -102,11 +102,25 @@ namespace Ucenje.E20RestoranRezervacije
             Console.ResetColor();
             Console.WriteLine("----------------");
 
+            if (rezervacijeLista == null)
+            {
+                Console.WriteLine("Rezervacije lista nije inicijalizirana.");
+                return;
+            }
+
+            Console.WriteLine("----------------");
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine(naslov);
+            Console.ResetColor();
+            Console.WriteLine("----------------");
+
             if (rezervacijeLista.Count == 0)
             {
                 Console.WriteLine("Trenutno nema unesenih rezervacija.");
                 return;
             }
+
+
 
             int rb = 0;
             foreach (var r in rezervacijeLista)
@@ -114,10 +128,9 @@ namespace Ucenje.E20RestoranRezervacije
                 var gost = _obradaGost.Gosti.FirstOrDefault(g => g.Sifra == r.GostId);
                 var stol = _obradaStol.Stolovi.FirstOrDefault(s => s.Sifra == r.StolId);
 
-                Console.WriteLine($"{++rb}. Gost: {gost?.Ime} {gost?.Prezime}, Stol: {stol?.BrojStola}, Datum: {r.DatumVrijeme}, Broj osoba: {r.BrojOsoba}, Napomena: {r.Napomena}");
+                Console.WriteLine($"{++rb}. Gost: {gost?.Ime} {gost?.Prezime}, Stol: {stol?.BrojStola}, Datum i vrijeme: {r.DatumVrijeme}, Broj osoba: {r.BrojOsoba}, Napomena: {r.Napomena}");
             }
         }
-
         private void UnosNoveRezervacije()
         {
             Console.WriteLine("***************");
@@ -147,10 +160,10 @@ namespace Ucenje.E20RestoranRezervacije
             };
 
             Rezervacije.Add(novaRezervacija);
-            PotvrdaUnosa(novaRezervacija); // Pass the new reservation to the confirmation method
+            PotvrdaUnosa(novaRezervacija); 
         }
 
-        private bool PotvrdaUnosa(Rezervacija rezervacija) // Accept the reservation as a parameter
+        private bool PotvrdaUnosa(Rezervacija rezervacija) 
         {
             Console.WriteLine("Želite li spremiti promjene? (DA/NE)");
             string potvrdaUnosa = Console.ReadLine().ToLower();
@@ -169,7 +182,7 @@ namespace Ucenje.E20RestoranRezervacije
                 Console.WriteLine("Odustali ste od unosa. ");
                 Console.WriteLine("------------------------------");
 
-                // Remove the last added reservation if the user cancels
+                
                 Rezervacije.Remove(rezervacija);
 
                 PrikaziIzbornik();
@@ -180,7 +193,7 @@ namespace Ucenje.E20RestoranRezervacije
         private void PromjeniPodatkeRezervacije()
         {
             PrikaziRezervaciju();
-            if (Rezervacije.Count == 0) return; // No reservations to change
+            if (Rezervacije.Count == 0) return; 
 
             int redniBroj = PomocnoRR.UcitajRasponBroja("Unesite redni broj rezervacije koju želite promijeniti: ", 1, Rezervacije.Count);
             var rezervacijaZaPromjenu = Rezervacije[redniBroj - 1];
@@ -189,7 +202,7 @@ namespace Ucenje.E20RestoranRezervacije
 
             _obradaGost.PrikaziGosta();
             int gostId = PomocnoRR.UcitajBroj("Unesite redni broj gosta (ili ENTER za preskakanje): ");
-            if (gostId != -1) // -1 indicates ENTER was pressed
+            if (gostId != -1)
             {
                 rezervacijaZaPromjenu.GostId = _obradaGost.Gosti[gostId - 1].Sifra;
             }

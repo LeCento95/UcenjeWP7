@@ -31,7 +31,7 @@ namespace Ucenje.E20RestoranRezervacije
 
         private void UcitajTestnePodatke()
         {
-            // Example test data (improve as needed)
+            
             for (int i = 0; i < 5; i++)
             {
                 if (_obradaRezervacija.Rezervacije.Count > 0 && _obradaJelovnik.Jela.Count > 0)
@@ -129,11 +129,11 @@ namespace Ucenje.E20RestoranRezervacije
                 return;
             }
 
-            _obradaRezervacija.PrikaziRezervaciju(); // Display available reservations
+            _obradaRezervacija.PrikaziRezervaciju();
             int rezervacijaId = PomocnoRR.UcitajRasponBroja("Unesite redni broj rezervacije: ", 1, _obradaRezervacija.Rezervacije.Count);
             int sifraRezervacije = _obradaRezervacija.Rezervacije[rezervacijaId - 1].Sifra;
 
-            _obradaJelovnik.PrikaziJelo(); // Display available menu items
+            _obradaJelovnik.PrikaziJelo();
             int jeloId = PomocnoRR.UcitajRasponBroja("Unesite redni broj jela: ", 1, _obradaJelovnik.Jela.Count);
             int sifraJela = _obradaJelovnik.Jela[jeloId - 1].Sifra;
 
